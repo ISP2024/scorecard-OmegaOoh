@@ -1,22 +1,4 @@
-"""
-This code contains common errors that can by detected 
-by static type checking -- if the type is known!
-Please do not fix this code by inspection.
-
-Instead, add type hints and watch your IDE (or mypy) find errors.
-
-Add these hints ONE AT A TIME.  SAVE the file after each one and run mypy.
-Observe how the type hint helps it perform static checking.
-
-1) add type to parameter:                `add_score(self, score: float)`
-2) add type to return value of average:  `average(self) -> ???`
-3) add type to self.scores attribute:    `self.scores: ???[???] = []`
-4) add type hints for all parameters and return values.
-   If a function does not return a value, don't write a type hint.
-5) add type to the `suffixes` variable in `ordinal()` function. 
-   Include the type of keys and values.
-
-"""
+"""Module to store and calculate statistics of score."""
 
 from typing import Iterable, Sized
 
@@ -45,11 +27,8 @@ class Scorecard(Iterable, Sized):
 
 def print_scores(score_card: Scorecard):
     """Print statistics for the scorecard and the actual scores."""
-
-    # What changes to Scorecard are needed in order to make this code work?
     print(f"Scorecard contains {len(score_card)} scores.")
     print(f"Min score: {min(score_card)}  Max score: {max(score_card)}.")
-    # What change to Scorecard is needed to make this work?
     for score in score_card:
         print(score)
 
