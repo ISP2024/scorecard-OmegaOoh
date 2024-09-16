@@ -18,12 +18,20 @@ Observe how the type hint helps it perform static checking.
 
 """
 
-class Scorecard:
+from typing import Iterable, Sized
+
+class Scorecard(Iterable, Sized):
     """Accumulate scores and compute their average."""
 
     def __init__(self):
         """Initialize a new Scorecard."""
         self.scores: list[float] = []
+
+    def __len__(self):
+        return len(self.scores)
+
+    def __iter__(self):
+        return iter(self.scores)
 
     def add_score(self, score: float):
         """Add a score to the Scorecard."""
@@ -61,9 +69,9 @@ if __name__ == "__main__":
 
     print("Input 3 scores.")
     for count in range(1,4):
-        score = input(f"input {ordinal(count)} score: ")
+        score = float(input(f"input {ordinal(count)} score: "))
         scorecard.add_score(score)
 
-    print("The average is " + scorecard.average())
+    print("The average is ", scorecard.average())
 
     print_scores(scorecard)
